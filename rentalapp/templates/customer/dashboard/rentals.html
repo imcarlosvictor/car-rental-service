@@ -1,0 +1,54 @@
+{% extends "customer/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="content">
+	<p class="section-title">Rentals</p>
+	<table class="table table-hover">
+		<thead class="table-head">
+			<tr>
+				<th class="th">Model</th>
+				<th class="th">Brand</th>
+				<th class="th">Color</th>
+				<th class="th">Capacity</th>
+				<th class="th">Fuel Type</th>
+				<th class="th">Price</th>
+				<th class="th">Available</th>
+			</tr>
+		</thead>
+
+		<tbody>
+		{% for product in products %}
+			<tr class="product" data-href="{{ product.get_absolute_url }}">
+				<td>{{ product.model }}</td>
+				<td>{{ product.brand }}</td>
+				<td>{{ product.color }}</td>
+				<td>{{ product.capacity }}</td>
+				<td>{{ product.fuel_type }}</td>
+				<td>${{ product.price }}</td>
+				<td><span {% if product.available %}class="available-prod"{% else %}class="unavailable-prod"{% endif %}>{{ product.available }}</span></td>
+			</tr>
+		{% endfor %}
+		</tbody>
+	</table>
+
+	<div class="pagination-container">
+		<div class="pagination">
+			<span class="step-links">
+				{% if products.has_previous %}
+					<a href="?page={{ products.previous_page_number }}" class="pagination-btn"><img src="{% static 'media/icons/left.png' %}"></a>
+				{% endif %}
+				<span class="current">
+					Page {{ products.number }} of {{ products.paginator.num_pages }}
+				</span>
+				{% if products.has_next %}
+				<a href="?page={{ products.next_page_number }}" class="pagination-btn"><img src="{% static 'media/icons/next.png' %}"></a>
+				{% endif %}
+			</span>
+		</div>
+	</div>
+</div>
+
+{% endblock %}

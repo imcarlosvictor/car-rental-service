@@ -1,0 +1,35 @@
+{% extends "customer/accounts/base_login.html" %}
+{% load static %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+	<div id="account-card">
+		<p class="card-title">New Account</p>
+		<div class="login-form">
+			<form method="POST" action="">
+				{% csrf_token %}
+				{% for field in form  %}
+					{{field}}
+				{% endfor %}
+				<input type="submit" name="create-account" value="Create Account" class="account-cta">
+			</form>
+		</div>
+		<div class="account-redirect">
+			<p class="account-info">Already have an account? <a href="{% url 'rentalapp:login' %}">Sign In</a></p>
+		</div>
+	</div>
+
+	<script>
+		var form_fields = document.getElementsByTagName("input");
+		form_fields[1].placeholder = "Email";
+		form_fields[2].placeholder = "Firstname";
+		form_fields[3].placeholder = "Lastname";
+		form_fields[4].placeholder = "Password";
+		form_fields[5].placeholder = "Confirm Password";
+
+		for (var field in form_fields) {
+			form_fields[fields].className += "form-control";
+		}
+	</script>
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'customer/base.html' %}
+
+{% block title %}Invoice{% endblock %}
+
+{% block content %}
+	<div class="content">
+		<p class="section-title">Invoices</p>
+		<table class="table table-hover">
+			<thead class="table-head">
+				<tr>
+					<th class="th">ID</th>
+					<th class="th">Transaction Date</th>
+					<th class="th">Customer</th>
+					<th class="th">Email</th>
+					<th class="th">Amount</th>
+					<th class="th">Paid</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for invoice in invoices %}
+					<tr class="invoice-item">
+						<td>{{ invoice.transaction_id }}</td>
+						<td>{{ invoice.transaction_date }}</td>
+						<td>{{ invoice.customer }}</td>
+						<td>{{ invoice.email }}</td>
+						<td>${{ invoice.amount|floatformat:2 }}</td>
+						<td>{{ invoice.paid }}</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+{% endblock %}

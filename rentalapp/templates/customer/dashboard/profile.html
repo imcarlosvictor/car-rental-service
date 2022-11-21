@@ -1,0 +1,45 @@
+{% extends "customer/base.html" %}
+{% load static %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="content">
+	<p class="section-title">Profile Settings</p>
+	<div class="content-cards">
+
+		<div class="profile-card-container">
+			<div class="payment-form">
+				<form method="POST">
+					{% csrf_token %}
+					<div class="input-same-line">
+						<label>First name</label>
+						<input type="text" class="input-form input-left" placeholder="{{ user.firstname|title }}">
+					</div>
+
+					<div class="input-same-line">
+						<label>Last name</label>
+						<input type="text" class="input-form input-left" placeholder="{{ user.lastname|title }}">
+					</div>
+
+					<div class="input-same-line">
+						<label>Email</label>
+						<input type="text" class="input-form input-left" placeholder="{{ user.email }}">
+					</div>
+
+					<div class="input-same-line">
+						<label>Mobile</label>
+						<input type="text" class="input-form input-left" placeholder="{{ user.mobile }}">
+					</div>
+
+					<input type="submit" id="add-cta" value="Save Changes">
+				</form>
+
+			</div>
+		</div>
+	</div>
+	<div class="logout-card">
+		<a href="{% url 'rentalapp:logout' %}" id="logout-btn">Logout</a>
+	</div>
+</div>
+{% endblock %}
