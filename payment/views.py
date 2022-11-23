@@ -11,7 +11,7 @@ from orders.models import Invoice
 # This is your test secret API key.
 stripe.api_key = 'sk_test_51LhNbNBGZyNiyiqHLHFvN0Eucgo7IWOQcT33pjpIQ4CQd14nOvqHCJVCsT0aOfRVWQnDV5fd7tGSTTksVADAarlj00GdR1hI4l'
 
-DOMAIN = 'https://lucascarrentals.herokuapp.com/'
+DOMAIN = 'https://stingray-app-vwp9e.ondigitalocean.app/'
 
 # Create your views here.
 def build_checkout_session(request):
