@@ -4,7 +4,11 @@ A rental service website that allows users to rent vehicles. Users must create a
 Live: https://lucascarrentals.herokuapp.com/
 
 ## Final Product
-![start](staticfiles/media/project_overview_images/car_rental_login.png)
+![login](staticfiles/media/project_overview_images/car_rental_login.png)
+![Home](staticfiles/media/project_overview_images/car_rental_home.png)
+![Checkout](staticfiles/media/project_overview_images/car_rental_checkout.png)
+![Stripe API](staticfiles/media/project_overview_images/car_rental_strip_api.png)
+![Success](staticfiles/media/project_overview_images/car_rental_success.png)
 
 ## Key Features
 - Account creation
